@@ -1,0 +1,20 @@
+name: Deploy to pkg branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to pkg branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: pkg
+          FOLDER: pkg
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
