@@ -6,6 +6,8 @@ on:
 
 jobs:
   deploy:
+    permissions:
+      contents: write
     name: Deploy to pkg branch
     runs-on: ubuntu-latest
     steps:
